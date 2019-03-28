@@ -32,9 +32,13 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let chosenImage = info[.originalImage] as! UIImage
         imageView.image = chosenImage
-        dismiss(animated: true, completion: { () -> Void in
+        dismiss(animated: true, completion: {
             self.api.performSearch(image: chosenImage, completionHandler: {results in
-                print(results)
+                DispatchQueue.main.async {
+                    let destVC: ResultsViewController = ResultsViewController(nibName: "ResultsViewController", bundle: Bundle.main)
+                    destVC.results = results
+                    self.present(destVC, animated: true)
+                }
             })
         })
     }

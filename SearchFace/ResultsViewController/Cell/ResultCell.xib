@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="88" id="Ytv-fG-h5a" userLabel="cell" customClass="ResultCell" customModule="SearchFace" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="88"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ytv-fG-h5a" id="0Ha-Vf-oiY">
+                <rect key="frame" x="0.0" y="0.0" width="374" height="87.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score: 0.75" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a8-Pb-34t" userLabel="scoreLabel">
+                        <rect key="frame" x="20" y="33.5" width="86" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s92-if-dGh" userLabel="thumbnail1">
+                        <rect key="frame" x="114" y="11" width="66" height="66"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="s92-if-dGh" secondAttribute="height" multiplier="1:1" id="ytt-Nr-pSh"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZyR-Kr-sDb" userLabel="thumbnail2">
+                        <rect key="frame" x="188" y="10" width="66" height="66"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ZyR-Kr-sDb" secondAttribute="height" multiplier="1:1" id="jtd-ec-QYo"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yQ4-6f-wUQ" userLabel="thumbnail3">
+                        <rect key="frame" x="262" y="10" width="66" height="66"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="yQ4-6f-wUQ" secondAttribute="height" multiplier="1:1" id="V0Y-hQ-Im5"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ZyR-Kr-sDb" secondAttribute="bottom" constant="11.5" id="0rj-mn-wLa"/>
+                    <constraint firstItem="8a8-Pb-34t" firstAttribute="centerY" secondItem="0Ha-Vf-oiY" secondAttribute="centerY" id="3Ma-RN-pzU"/>
+                    <constraint firstAttribute="bottom" secondItem="s92-if-dGh" secondAttribute="bottom" constant="10.5" id="7sx-TY-kQg"/>
+                    <constraint firstItem="ZyR-Kr-sDb" firstAttribute="top" secondItem="0Ha-Vf-oiY" secondAttribute="top" constant="10" id="LE9-h6-I1X"/>
+                    <constraint firstItem="s92-if-dGh" firstAttribute="top" secondItem="0Ha-Vf-oiY" secondAttribute="top" constant="11" id="NFG-iQ-ha8"/>
+                    <constraint firstItem="8a8-Pb-34t" firstAttribute="leading" secondItem="0Ha-Vf-oiY" secondAttribute="leading" constant="20" id="RNK-GH-msK"/>
+                    <constraint firstItem="yQ4-6f-wUQ" firstAttribute="top" secondItem="0Ha-Vf-oiY" secondAttribute="top" constant="10" id="UMb-f1-tja"/>
+                    <constraint firstAttribute="bottom" secondItem="yQ4-6f-wUQ" secondAttribute="bottom" constant="11.5" id="XQt-Im-DBm"/>
+                    <constraint firstItem="ZyR-Kr-sDb" firstAttribute="leading" secondItem="s92-if-dGh" secondAttribute="trailing" constant="8" id="Yjx-Yn-Dft"/>
+                    <constraint firstItem="s92-if-dGh" firstAttribute="leading" secondItem="8a8-Pb-34t" secondAttribute="trailing" constant="8" id="bSM-AK-eAF"/>
+                    <constraint firstItem="yQ4-6f-wUQ" firstAttribute="leading" secondItem="ZyR-Kr-sDb" secondAttribute="trailing" constant="8" id="j2l-mP-xeZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="scoreLabel" destination="8a8-Pb-34t" id="XZc-ej-UTH"/>
+                <outlet property="thumbnail1" destination="s92-if-dGh" id="s8P-tt-0ya"/>
+                <outlet property="thumbnail2" destination="ZyR-Kr-sDb" id="rsg-N2-tb7"/>
+                <outlet property="thumbnail3" destination="yQ4-6f-wUQ" id="W9k-Ky-wgL"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

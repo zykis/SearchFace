@@ -1,0 +1,7 @@
+# XCode
+*.DS_Store
+Pods/
+build/
+DerivedData/
+xcuserdata/
+*.ipa
