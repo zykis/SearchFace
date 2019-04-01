@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Style.defaultTheme()
+        Style.update()
         // Override point for customization after application launch.
         let root: SearchViewController = SearchViewController(nibName: "SearchViewController", bundle: nil)
         window = UIWindow(frame: UIScreen.main.bounds)

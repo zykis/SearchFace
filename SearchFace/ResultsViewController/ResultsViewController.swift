@@ -23,14 +23,24 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: TableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return results.count
     }
     
+    // MARK: TableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let result = results[indexPath.row]
+        let result = results[indexPath.section]
 
         let cell: ResultCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ResultCell
-        cell.scoreLabel.text = "score: \(result.score)"
+        cell.scoreLabel.text = "\(Int(result.score * 100))%"
+        // in case cell will be reused
+        cell.thumbnail1.image = nil
+        cell.thumbnail2.image = nil
+        cell.thumbnail3.image = nil
+        
         if result.thumbnails.count > 0 {
           cell.thumbnail1.imageFromURL(urlString: result.thumbnails[0].url, placeholder: nil)
         }
@@ -45,6 +55,10 @@ class ResultsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 88.0
+        return 102.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 6.0
     }
 }

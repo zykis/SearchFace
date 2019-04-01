@@ -9,10 +9,16 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Phosphate.ttf">
+            <string>Phosphate-Inline</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="SearchFace" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="yTR-Ii-rmn" id="LbP-Mi-jI9"/>
+                <outlet property="tableView" destination="Xi9-Zi-85x" id="c75-2v-Auu"/>
                 <outlet property="view" destination="eq8-mA-kdr" id="MSb-c3-XND"/>
             </connections>
         </placeholder>
@@ -21,27 +27,66 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yTR-Ii-rmn">
-                    <rect key="frame" x="20" y="123" width="374" height="719"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchFace 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="MR4-x3-0cf">
+                    <rect key="frame" x="98.5" y="56.5" width="217" height="217"/>
+                </imageView>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yTR-Ii-rmn" customClass="DashedImageView" customModule="SearchFace" customModuleProvider="target">
+                    <rect key="frame" x="4" y="52" width="406" height="226"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="226" id="aWG-6c-ht2"/>
+                    </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCf-Gh-H2s">
-                    <rect key="frame" x="152" y="73" width="110" height="30"/>
-                    <state key="normal" title="Выберите фото"/>
+                    <rect key="frame" x="4" y="52" width="406" height="226"/>
                     <connections>
                         <action selector="search:" destination="-1" eventType="touchUpInside" id="ArP-iJ-M74"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEARCHFACE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ni-03-ZoA">
+                    <rect key="frame" x="88" y="771" width="238" height="53"/>
+                    <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="52"/>
+                    <color key="textColor" red="0.68235294120000001" green="0.80000000000000004" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="44"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="API" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlx-YH-q38">
+                    <rect key="frame" x="191.5" y="822" width="31" height="21"/>
+                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="18"/>
+                    <color key="textColor" red="0.68235294120000001" green="0.80000000000000004" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xi9-Zi-85x">
+                    <rect key="frame" x="4" y="286" width="406" height="576"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="TJh-tB-cLm" firstAttribute="trailing" secondItem="yTR-Ii-rmn" secondAttribute="trailing" constant="20" id="64u-f7-lJ3"/>
-                <constraint firstItem="FCf-Gh-H2s" firstAttribute="top" secondItem="TJh-tB-cLm" secondAttribute="top" constant="29" id="Jlt-7s-4lH"/>
-                <constraint firstItem="yTR-Ii-rmn" firstAttribute="top" secondItem="FCf-Gh-H2s" secondAttribute="bottom" constant="20" id="RKV-7f-ln4"/>
-                <constraint firstItem="yTR-Ii-rmn" firstAttribute="bottom" secondItem="TJh-tB-cLm" secondAttribute="bottom" constant="-20" id="fJn-Kh-Ar1"/>
-                <constraint firstItem="yTR-Ii-rmn" firstAttribute="leading" secondItem="TJh-tB-cLm" secondAttribute="leading" constant="20" id="kQQ-q6-YW7"/>
-                <constraint firstItem="FCf-Gh-H2s" firstAttribute="centerX" secondItem="TJh-tB-cLm" secondAttribute="centerX" id="xAT-Nm-oow"/>
+                <constraint firstItem="MR4-x3-0cf" firstAttribute="centerY" secondItem="yTR-Ii-rmn" secondAttribute="centerY" id="01S-jv-GbC"/>
+                <constraint firstItem="TJh-tB-cLm" firstAttribute="trailing" secondItem="yTR-Ii-rmn" secondAttribute="trailing" constant="4" id="64u-f7-lJ3"/>
+                <constraint firstItem="TJh-tB-cLm" firstAttribute="trailing" secondItem="Xi9-Zi-85x" secondAttribute="trailing" constant="4" id="DFx-8W-fbr"/>
+                <constraint firstItem="TJh-tB-cLm" firstAttribute="bottom" secondItem="Mlx-YH-q38" secondAttribute="bottom" constant="19" id="E7l-dr-6aY"/>
+                <constraint firstItem="FCf-Gh-H2s" firstAttribute="trailing" secondItem="yTR-Ii-rmn" secondAttribute="trailing" id="U0v-Rd-OO9"/>
+                <constraint firstItem="Xi9-Zi-85x" firstAttribute="top" secondItem="yTR-Ii-rmn" secondAttribute="bottom" constant="8" id="YpO-EP-dsC"/>
+                <constraint firstItem="FCf-Gh-H2s" firstAttribute="top" secondItem="yTR-Ii-rmn" secondAttribute="top" id="bDs-7d-S8R"/>
+                <constraint firstItem="5Ni-03-ZoA" firstAttribute="centerX" secondItem="TJh-tB-cLm" secondAttribute="centerX" id="cit-tL-ty6"/>
+                <constraint firstItem="MR4-x3-0cf" firstAttribute="centerX" secondItem="yTR-Ii-rmn" secondAttribute="centerX" id="egk-st-ccv"/>
+                <constraint firstItem="yTR-Ii-rmn" firstAttribute="leading" secondItem="TJh-tB-cLm" secondAttribute="leading" constant="4" id="kQQ-q6-YW7"/>
+                <constraint firstItem="Mlx-YH-q38" firstAttribute="centerX" secondItem="TJh-tB-cLm" secondAttribute="centerX" id="pvW-jC-tRK"/>
+                <constraint firstItem="FCf-Gh-H2s" firstAttribute="bottom" secondItem="yTR-Ii-rmn" secondAttribute="bottom" id="rN4-jd-bXt"/>
+                <constraint firstItem="yTR-Ii-rmn" firstAttribute="top" secondItem="TJh-tB-cLm" secondAttribute="top" constant="8" id="rUp-G8-5kM"/>
+                <constraint firstItem="Mlx-YH-q38" firstAttribute="top" secondItem="5Ni-03-ZoA" secondAttribute="bottom" constant="-2" id="unw-w0-Mhk"/>
+                <constraint firstItem="Xi9-Zi-85x" firstAttribute="leading" secondItem="TJh-tB-cLm" secondAttribute="leading" constant="4" id="vJC-QH-IoV"/>
+                <constraint firstItem="FCf-Gh-H2s" firstAttribute="leading" secondItem="yTR-Ii-rmn" secondAttribute="leading" id="w0V-Sc-kHV"/>
+                <constraint firstItem="TJh-tB-cLm" firstAttribute="bottom" secondItem="Xi9-Zi-85x" secondAttribute="bottom" id="wl9-II-JXi"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="TJh-tB-cLm"/>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
         </view>
     </objects>
+    <resources>
+        <image name="SearchFace 2.png" width="217" height="217"/>
+    </resources>
 </document>

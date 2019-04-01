@@ -21,22 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-1U-klp">
-                    <rect key="frame" x="173" y="812" width="68" height="30"/>
-                    <state key="normal" title="Очистить"/>
-                </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bGc-rc-Qjm">
-                    <rect key="frame" x="0.0" y="64" width="414" height="740"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bGc-rc-Qjm">
+                    <rect key="frame" x="0.0" y="64" width="414" height="790"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Es1-1U-klp" firstAttribute="centerX" secondItem="mkl-a0-HXQ" secondAttribute="centerX" id="2kz-8y-kPX"/>
+                <constraint firstItem="mkl-a0-HXQ" firstAttribute="bottom" secondItem="bGc-rc-Qjm" secondAttribute="bottom" constant="8" id="PpA-LT-Rbi"/>
                 <constraint firstItem="bGc-rc-Qjm" firstAttribute="leading" secondItem="mkl-a0-HXQ" secondAttribute="leading" id="cVJ-AQ-wdV"/>
-                <constraint firstItem="mkl-a0-HXQ" firstAttribute="bottom" secondItem="Es1-1U-klp" secondAttribute="bottom" constant="20" id="cxk-VU-F7D"/>
                 <constraint firstItem="mkl-a0-HXQ" firstAttribute="trailing" secondItem="bGc-rc-Qjm" secondAttribute="trailing" id="fbm-xK-k6h"/>
-                <constraint firstItem="Es1-1U-klp" firstAttribute="top" secondItem="bGc-rc-Qjm" secondAttribute="bottom" constant="8" id="kgN-Vs-0Rl"/>
                 <constraint firstItem="bGc-rc-Qjm" firstAttribute="top" secondItem="mkl-a0-HXQ" secondAttribute="top" constant="20" id="rh3-Ar-yPi"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="mkl-a0-HXQ"/>

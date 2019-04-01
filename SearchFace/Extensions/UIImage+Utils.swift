@@ -8,9 +8,17 @@
 
 import UIKit
 
+var imageCache = NSCache<NSString, UIImage>()
+
 extension UIImageView {
     func imageFromURL(urlString: String, placeholder: UIImage?) {
         if let url: URL = URL(string: urlString) {
+            if let cached: UIImage = imageCache.object(forKey: NSString(string: urlString)) {
+                DispatchQueue.main.async {
+                    self.image = cached
+                }
+                return
+            }
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 guard let response = data, error == nil else {
                     print(error?.localizedDescription ?? "Error fetching image: \(urlString))")
@@ -23,6 +31,7 @@ extension UIImageView {
                 do {
                     DispatchQueue.main.async {
                         if let image = UIImage(data: response) {
+                            imageCache.setObject(image, forKey: NSString(string: urlString))
                             self.image = image
                         } else if placeholder != nil {
                             self.image = placeholder
