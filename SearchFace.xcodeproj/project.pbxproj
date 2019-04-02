@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1724433822520B2C002DFF7E /* SearchFacePalette.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1724433722520B2C002DFF7E /* SearchFacePalette.txt */; };
 		17244341225220C2002DFF7E /* Phosphate.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1724434022521ACF002DFF7E /* Phosphate.ttf */; };
-		17244343225221BF002DFF7E /* DashedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17244342225221BF002DFF7E /* DashedImageView.swift */; };
+		17244343225221BF002DFF7E /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17244342225221BF002DFF7E /* BorderView.swift */; };
 		1724434A225235E8002DFF7E /* SearchFace 2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17244348225235E8002DFF7E /* SearchFace 2@2x.png */; };
 		1724434B225235E8002DFF7E /* SearchFace 2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17244349225235E8002DFF7E /* SearchFace 2@3x.png */; };
 		1738E858224B94D3009C6B41 /* SearchFaceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738E857224B94D3009C6B41 /* SearchFaceResult.swift */; };
@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		1724433722520B2C002DFF7E /* SearchFacePalette.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = SearchFacePalette.txt; path = ../SearchFacePalette.txt; sourceTree = "<group>"; };
 		1724434022521ACF002DFF7E /* Phosphate.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Phosphate.ttf; sourceTree = "<group>"; };
-		17244342225221BF002DFF7E /* DashedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedImageView.swift; sourceTree = "<group>"; };
+		17244342225221BF002DFF7E /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		17244348225235E8002DFF7E /* SearchFace 2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchFace 2@2x.png"; sourceTree = "<group>"; };
 		17244349225235E8002DFF7E /* SearchFace 2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchFace 2@3x.png"; sourceTree = "<group>"; };
 		1738E857224B94D3009C6B41 /* SearchFaceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFaceResult.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				1738E860224BCD43009C6B41 /* ResultCell */,
 				1761646F224A0AA2007D774B /* SearchViewController.swift */,
 				1738E864224CAC07009C6B41 /* SearchViewController.xib */,
-				17244342225221BF002DFF7E /* DashedImageView.swift */,
+				17244342225221BF002DFF7E /* BorderView.swift */,
 			);
 			path = SearchViewController;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 				1738E862224BCD59009C6B41 /* ResultCell.swift in Sources */,
 				1738E867224CBDC2009C6B41 /* UIImage+Utils.swift in Sources */,
 				1761646E224A0AA2007D774B /* AppDelegate.swift in Sources */,
-				17244343225221BF002DFF7E /* DashedImageView.swift in Sources */,
+				17244343225221BF002DFF7E /* BorderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

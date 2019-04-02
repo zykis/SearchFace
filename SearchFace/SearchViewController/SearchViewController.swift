@@ -9,15 +9,23 @@
 import UIKit
 
 class SearchViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
-                            UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var imageView: DashedImageView!
+                            UITableViewDataSource, UITableViewDelegate, BorderViewDelegate {
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var borderView: BorderView!
+    
     var results: [SearchFaceResult] = []
     let picker: UIImagePickerController = UIImagePickerController()
     let api: SearchFaceAPI = SearchFaceAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        borderView.delegate = self
+        
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "SearchFace 2")
+
         picker.delegate = self
         picker.sourceType = .photoLibrary
         
@@ -29,10 +37,6 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
-    @IBAction func search(_ sender: Any) {
-        self.present(picker, animated: true, completion: nil)
-    }
-    
     // MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
@@ -41,6 +45,7 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let chosenImage = info[.originalImage] as! UIImage
         imageView.image = chosenImage
+        
         self.results = []
         self.tableView.reloadData()
         self.tableView.isHidden = true
@@ -109,6 +114,9 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
             // loading an image from url
             imageView.imageFromURL(urlString: thumbnail.url, placeholder: nil, completionHandler: { (image: UIImage) -> Void in
                 
+                // setting up image
+                imageView.image = image
+                
                 // centering face in image
                 let faceRect = CGRect(x: thumbnail.center.x - thumbnail.radius,
                                       y: thumbnail.center.y - thumbnail.radius,
@@ -116,8 +124,8 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
                                       height: thumbnail.radius * 2)
                 let contentRect = CGRect(x: faceRect.origin.x / image.size.width,
                                          y: faceRect.origin.y / image.size.height,
-                                         width: (faceRect.size.width) / image.size.width,
-                                         height: (faceRect.size.height) / image.size.height)
+                                         width: faceRect.size.width / image.size.width,
+                                         height: faceRect.size.height / image.size.height)
                 imageView.layer.contentsRect = contentRect
                 imageView.layer.contentsGravity = .resizeAspectFill
             })
@@ -132,6 +140,11 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 6.0
+    }
+    
+    // Border view delegate
+    func borderViewTapped() {
+        self.present(picker, animated: true, completion: nil)
     }
 }
 

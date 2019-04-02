@@ -15,7 +15,7 @@ extension UIImageView {
         if let url: URL = URL(string: urlString) {
             if let cached: UIImage = imageCache.object(forKey: NSString(string: urlString)) {
                 DispatchQueue.main.async {
-                    self.image = cached
+//                    self.image = cached
                     completionHandler?(cached)
                 }
                 return
@@ -33,7 +33,7 @@ extension UIImageView {
                     DispatchQueue.main.async {
                         if let image = UIImage(data: response) {
                             imageCache.setObject(image, forKey: NSString(string: urlString))
-                            self.image = image
+//                            self.image = image
                             completionHandler?(image)
                         } else if placeholder != nil {
                             self.image = placeholder
