@@ -28,17 +28,17 @@ class SearchFaceResult: NSObject {
 
 class Thumbnail: NSObject {
     var url: String
-    var center: (x: Float, y: Float) = (x: 0, y: 0)
-    var radius: Float = 0.0
+    var center: (x: Int, y: Int) = (x: 0, y: 0)
+    var radius: Int = 0
     
     init(json: [Any]) {
         url = json[0] as! String
         if let x = json[1] as? NSNumber, let y = json[2] as? NSNumber {
-            center.x = x.floatValue
-            center.y = y.floatValue
+            center.x = x.intValue
+            center.y = y.intValue
         }
         if let r = json[3] as? NSNumber {
-            radius = r.floatValue
+            radius = r.intValue
         }
     }
 }

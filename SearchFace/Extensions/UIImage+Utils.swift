@@ -11,11 +11,12 @@ import UIKit
 var imageCache = NSCache<NSString, UIImage>()
 
 extension UIImageView {
-    func imageFromURL(urlString: String, placeholder: UIImage?) {
+    func imageFromURL(urlString: String, placeholder: UIImage?, completionHandler: ((UIImage) -> Void)?) {
         if let url: URL = URL(string: urlString) {
             if let cached: UIImage = imageCache.object(forKey: NSString(string: urlString)) {
                 DispatchQueue.main.async {
                     self.image = cached
+                    completionHandler?(cached)
                 }
                 return
             }
@@ -33,6 +34,7 @@ extension UIImageView {
                         if let image = UIImage(data: response) {
                             imageCache.setObject(image, forKey: NSString(string: urlString))
                             self.image = image
+                            completionHandler?(image)
                         } else if placeholder != nil {
                             self.image = placeholder
                         }

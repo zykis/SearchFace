@@ -87,8 +87,8 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
             imageView.clipsToBounds = true
             
             // creating ellipse mask
-            let mask = CAShapeLayer()
             let bounds = imageView.bounds
+            let mask = CAShapeLayer()
             mask.path = CGPath(ellipseIn: imageView.bounds, transform: .none)
             imageView.layer.mask = mask
             
@@ -107,7 +107,20 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
                                             height: Int(scrollView.frame.height))
             
             // loading an image from url
-            imageView.imageFromURL(urlString: thumbnail.url, placeholder: nil)
+            imageView.imageFromURL(urlString: thumbnail.url, placeholder: nil, completionHandler: { (image: UIImage) -> Void in
+                
+                // centering face in image
+                let faceRect = CGRect(x: thumbnail.center.x - thumbnail.radius,
+                                      y: thumbnail.center.y - thumbnail.radius,
+                                      width: thumbnail.radius * 2,
+                                      height: thumbnail.radius * 2)
+                let contentRect = CGRect(x: faceRect.origin.x / image.size.width,
+                                         y: faceRect.origin.y / image.size.height,
+                                         width: (faceRect.size.width) / image.size.width,
+                                         height: (faceRect.size.height) / image.size.height)
+                imageView.layer.contentsRect = contentRect
+                imageView.layer.contentsGravity = .resizeAspectFill
+            })
         }
         
         return cell
