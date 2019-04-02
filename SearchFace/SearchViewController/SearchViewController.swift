@@ -10,17 +10,23 @@ import UIKit
 
 class SearchViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
                             UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var imageView: DashedImageView!
+    @IBOutlet weak var tableView: UITableView!
+    var results: [SearchFaceResult] = []
     let picker: UIImagePickerController = UIImagePickerController()
     let api: SearchFaceAPI = SearchFaceAPI()
-    
-    @IBOutlet weak var imageView: DashedImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
         picker.sourceType = .photoLibrary
         
-        initResultsViewController()
+        let nib = UINib(nibName: "ResultCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.isHidden = true
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     @IBAction func search(_ sender: Any) {
@@ -49,20 +55,6 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
         })
     }
     
-    // TABLEVIEW
-    
-    func initResultsViewController() {
-        let nib = UINib(nibName: "ResultCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "cell")
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.isHidden = true
-        tableView.tableFooterView = UIView(frame: .zero)
-    }
-    
-    @IBOutlet weak var tableView: UITableView!
-    var results: [SearchFaceResult] = []
-    
     // MARK: TableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -78,19 +70,44 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         let cell: ResultCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ResultCell
         cell.scoreLabel.text = "\(Int(result.score * 100))%"
-        // in case cell will be reused
-        cell.thumbnail1.image = nil
-        cell.thumbnail2.image = nil
-        cell.thumbnail3.image = nil
         
-        if result.thumbnails.count > 0 {
-            cell.thumbnail1.imageFromURL(urlString: result.thumbnails[0].url, placeholder: nil)
+        let scrollView: UIScrollView = cell.viewWithTag(101) as! UIScrollView
+        // we can get less, then 5 photos, so better clean this up
+        for subview in scrollView.subviews {
+            subview.removeFromSuperview()
         }
-        if result.thumbnails.count > 1 {
-            cell.thumbnail2.imageFromURL(urlString: result.thumbnails[1].url, placeholder: nil)
-        }
-        if result.thumbnails.count > 2 {
-            cell.thumbnail3.imageFromURL(urlString: result.thumbnails[2].url, placeholder: nil)
+        for (index, thumbnail) in result.thumbnails.enumerated() {
+            // image view initialization
+            let imageView: UIImageView = UIImageView(frame: CGRect(origin: CGPoint(x: CGFloat(index) * scrollView.frame.height + CGFloat(4 * index),
+                                                                                   y: 0),
+                                                                   size: CGSize(width: scrollView.frame.height,
+                                                                                height: scrollView.frame.height)))
+            imageView.backgroundColor = UIColor.red
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            
+            // creating ellipse mask
+            let mask = CAShapeLayer()
+            let bounds = imageView.bounds
+            mask.path = CGPath(ellipseIn: imageView.bounds, transform: .none)
+            imageView.layer.mask = mask
+            
+            // creating outline for ellipse
+            let outline = CAShapeLayer()
+            outline.path = CGPath(ellipseIn: bounds, transform: .none)
+            outline.fillColor = nil
+            outline.lineWidth = 2.0
+            outline.borderColor = UIColor.black.cgColor
+            outline.strokeColor = UIColor(white: 0.0, alpha: 0.2).cgColor
+            imageView.layer.addSublayer(outline)
+            
+            // adding to scrollView
+            scrollView.addSubview(imageView)
+            scrollView.contentSize = CGSize(width: Int(scrollView.frame.height) * (index + 1) + (index * 4),
+                                            height: Int(scrollView.frame.height))
+            
+            // loading an image from url
+            imageView.imageFromURL(urlString: thumbnail.url, placeholder: nil)
         }
         
         return cell

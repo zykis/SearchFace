@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="88" id="Ytv-fG-h5a" userLabel="cell" customClass="ResultCell" customModule="SearchFace" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="102"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ytv-fG-h5a" id="0Ha-Vf-oiY">
+                <rect key="frame" x="0.0" y="0.0" width="374" height="101.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6B-th-d0Q">
+                        <rect key="frame" x="4" y="4" width="365" height="93.5"/>
+                    </scrollView>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="86%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a8-Pb-34t" userLabel="scoreLabel">
+                        <rect key="frame" x="4" y="4" width="26" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="26" id="mmm-Qb-Xbi"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.68235294117647061" green="0.80000000000000004" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="tintColor" red="0.11748389150000001" green="0.1213654056" blue="0.13381612300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="U6B-th-d0Q" secondAttribute="trailing" constant="5" id="381-k1-SJZ"/>
+                    <constraint firstItem="U6B-th-d0Q" firstAttribute="leading" secondItem="0Ha-Vf-oiY" secondAttribute="leading" constant="4" id="JEN-Aj-kyW"/>
+                    <constraint firstItem="8a8-Pb-34t" firstAttribute="leading" secondItem="0Ha-Vf-oiY" secondAttribute="leading" constant="4" id="RNK-GH-msK"/>
+                    <constraint firstItem="8a8-Pb-34t" firstAttribute="top" secondItem="0Ha-Vf-oiY" secondAttribute="top" constant="4" id="l8w-47-woq"/>
+                    <constraint firstItem="U6B-th-d0Q" firstAttribute="top" secondItem="0Ha-Vf-oiY" secondAttribute="top" constant="4" id="mUg-If-sfR"/>
+                    <constraint firstAttribute="bottom" secondItem="U6B-th-d0Q" secondAttribute="bottom" constant="4" id="vWv-Iq-CVO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="scoreLabel" destination="8a8-Pb-34t" id="XZc-ej-UTH"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </tableViewCell>
+    </objects>
+</document>
