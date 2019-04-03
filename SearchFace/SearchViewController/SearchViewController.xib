@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="SearchFace" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicatorView" destination="dG6-Pv-jpv" id="NYQ-KN-wfy"/>
                 <outlet property="borderView" destination="duC-vU-C0q" id="LYf-IX-Iph"/>
                 <outlet property="imageView" destination="yTR-Ii-rmn" id="LbP-Mi-jI9"/>
                 <outlet property="tableView" destination="Xi9-Zi-85x" id="c75-2v-Auu"/>
@@ -29,7 +30,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yTR-Ii-rmn">
-                    <rect key="frame" x="12" y="52" width="390" height="215.5"/>
+                    <rect key="frame" x="12" y="48" width="390" height="223.5"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEARCHFACE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ni-03-ZoA">
                     <rect key="frame" x="88" y="771" width="238" height="53"/>
@@ -41,7 +47,7 @@
                     </variation>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duC-vU-C0q" customClass="BorderView" customModule="SearchFace" customModuleProvider="target">
-                    <rect key="frame" x="4" y="44" width="406" height="231.5"/>
+                    <rect key="frame" x="8" y="44" width="398" height="231.5"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="API" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlx-YH-q38">
                     <rect key="frame" x="191.5" y="822" width="31" height="21"/>
@@ -53,25 +59,35 @@
                     <rect key="frame" x="4" y="283.5" width="406" height="578.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dG6-Pv-jpv" customClass="ActivityIndicatorView" customModule="SearchFace" customModuleProvider="target">
+                    <rect key="frame" x="103.5" y="418.5" width="207" height="69"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="dG6-Pv-jpv" secondAttribute="height" multiplier="3:1" id="Qy3-v1-Uem"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="yTR-Ii-rmn" firstAttribute="leading" secondItem="duC-vU-C0q" secondAttribute="leading" constant="8" id="0cW-c9-bFL"/>
+                <constraint firstItem="yTR-Ii-rmn" firstAttribute="leading" secondItem="duC-vU-C0q" secondAttribute="leading" constant="4" id="0cW-c9-bFL"/>
+                <constraint firstItem="dG6-Pv-jpv" firstAttribute="centerY" secondItem="TJh-tB-cLm" secondAttribute="centerY" id="3oz-Jr-qlR"/>
                 <constraint firstItem="duC-vU-C0q" firstAttribute="top" secondItem="TJh-tB-cLm" secondAttribute="top" id="7VD-0G-obe"/>
                 <constraint firstItem="TJh-tB-cLm" firstAttribute="trailing" secondItem="Xi9-Zi-85x" secondAttribute="trailing" constant="4" id="DFx-8W-fbr"/>
                 <constraint firstItem="TJh-tB-cLm" firstAttribute="bottom" secondItem="Mlx-YH-q38" secondAttribute="bottom" constant="19" id="E7l-dr-6aY"/>
                 <constraint firstItem="Xi9-Zi-85x" firstAttribute="top" secondItem="duC-vU-C0q" secondAttribute="bottom" constant="8" id="Kji-zz-NDs"/>
-                <constraint firstItem="yTR-Ii-rmn" firstAttribute="trailing" secondItem="duC-vU-C0q" secondAttribute="trailing" constant="-8" id="QOx-Fu-98O"/>
+                <constraint firstItem="yTR-Ii-rmn" firstAttribute="trailing" secondItem="duC-vU-C0q" secondAttribute="trailing" constant="-4" id="QOx-Fu-98O"/>
                 <constraint firstItem="duC-vU-C0q" firstAttribute="height" secondItem="Xi9-Zi-85x" secondAttribute="height" multiplier="0.4" id="R0K-Nn-y4k"/>
-                <constraint firstItem="TJh-tB-cLm" firstAttribute="trailing" secondItem="duC-vU-C0q" secondAttribute="trailing" constant="4" id="WKF-T0-VMW"/>
+                <constraint firstItem="TJh-tB-cLm" firstAttribute="trailing" secondItem="duC-vU-C0q" secondAttribute="trailing" constant="8" id="WKF-T0-VMW"/>
                 <constraint firstItem="5Ni-03-ZoA" firstAttribute="centerX" secondItem="TJh-tB-cLm" secondAttribute="centerX" id="cit-tL-ty6"/>
-                <constraint firstItem="duC-vU-C0q" firstAttribute="leading" secondItem="TJh-tB-cLm" secondAttribute="leading" constant="4" id="dIq-qm-njI"/>
+                <constraint firstItem="duC-vU-C0q" firstAttribute="leading" secondItem="TJh-tB-cLm" secondAttribute="leading" constant="8" id="dIq-qm-njI"/>
+                <constraint firstItem="dG6-Pv-jpv" firstAttribute="width" secondItem="eq8-mA-kdr" secondAttribute="width" multiplier="0.5" id="nRL-dK-Z9N"/>
                 <constraint firstItem="Mlx-YH-q38" firstAttribute="centerX" secondItem="TJh-tB-cLm" secondAttribute="centerX" id="pvW-jC-tRK"/>
-                <constraint firstItem="yTR-Ii-rmn" firstAttribute="top" secondItem="duC-vU-C0q" secondAttribute="top" constant="8" id="rKF-5X-qXG"/>
+                <constraint firstItem="yTR-Ii-rmn" firstAttribute="top" secondItem="duC-vU-C0q" secondAttribute="top" constant="4" id="rKF-5X-qXG"/>
                 <constraint firstItem="Mlx-YH-q38" firstAttribute="top" secondItem="5Ni-03-ZoA" secondAttribute="bottom" constant="-2" id="unw-w0-Mhk"/>
                 <constraint firstItem="Xi9-Zi-85x" firstAttribute="leading" secondItem="TJh-tB-cLm" secondAttribute="leading" constant="4" id="vJC-QH-IoV"/>
+                <constraint firstItem="dG6-Pv-jpv" firstAttribute="centerX" secondItem="TJh-tB-cLm" secondAttribute="centerX" id="wl3-Oj-Dt7"/>
                 <constraint firstItem="TJh-tB-cLm" firstAttribute="bottom" secondItem="Xi9-Zi-85x" secondAttribute="bottom" id="wl9-II-JXi"/>
-                <constraint firstItem="yTR-Ii-rmn" firstAttribute="bottom" secondItem="duC-vU-C0q" secondAttribute="bottom" constant="-8" id="xMe-ro-V01"/>
+                <constraint firstItem="yTR-Ii-rmn" firstAttribute="bottom" secondItem="duC-vU-C0q" secondAttribute="bottom" constant="-4" id="xMe-ro-V01"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="TJh-tB-cLm"/>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>

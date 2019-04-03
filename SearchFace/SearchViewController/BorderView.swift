@@ -39,7 +39,7 @@ class BorderView: UIView {
         border.cornerRadius = 6.0
         border.strokeColor = Style.lightBlueColor?.cgColor
         border.fillColor = nil
-        border.lineWidth = 3
+        border.lineWidth = 2
         border.lineDashPattern = [8, 8]
         
         self.layer.addSublayer(border)

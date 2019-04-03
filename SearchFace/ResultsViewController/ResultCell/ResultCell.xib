@@ -22,14 +22,10 @@
                         <rect key="frame" x="4" y="4" width="365" height="93.5"/>
                     </scrollView>
                     <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="86%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a8-Pb-34t" userLabel="scoreLabel">
-                        <rect key="frame" x="4" y="4" width="26" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="26" id="mmm-Qb-Xbi"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="4" y="4" width="36.5" height="20.5"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                        <color key="textColor" red="0.076567880809307098" green="0.25898844003677368" blue="0.276317298412323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
-                        <color key="shadowColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" red="0.68235294117647061" green="0.80000000000000004" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,6 +39,11 @@
                     <constraint firstAttribute="bottom" secondItem="U6B-th-d0Q" secondAttribute="bottom" constant="4" id="vWv-Iq-CVO"/>
                 </constraints>
             </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="6"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="scoreLabel" destination="8a8-Pb-34t" id="XZc-ej-UTH"/>
             </connections>

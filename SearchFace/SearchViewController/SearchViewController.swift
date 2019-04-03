@@ -13,6 +13,7 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var borderView: BorderView!
+    @IBOutlet weak var activityIndicatorView: ActivityIndicatorView!
     
     var results: [SearchFaceResult] = []
     let picker: UIImagePickerController = UIImagePickerController()
@@ -44,14 +45,18 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let chosenImage = info[.originalImage] as! UIImage
+        imageView.contentMode = .scaleAspectFit
         imageView.image = chosenImage
         
         self.results = []
         self.tableView.reloadData()
         self.tableView.isHidden = true
+        activityIndicatorView.startAnimating()
+        
         dismiss(animated: true, completion: {
             self.api.performSearch(image: chosenImage, completionHandler: {results in
                 DispatchQueue.main.async {
+                    self.activityIndicatorView.stopAnimating()
                     self.results = results
                     self.tableView.isHidden = false
                     self.tableView.reloadData()

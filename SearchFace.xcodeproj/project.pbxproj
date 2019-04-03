@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171F8F542253A19800730421 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171F8F532253A19800730421 /* ActivityIndicatorView.swift */; };
 		1724433822520B2C002DFF7E /* SearchFacePalette.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1724433722520B2C002DFF7E /* SearchFacePalette.txt */; };
 		17244341225220C2002DFF7E /* Phosphate.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1724434022521ACF002DFF7E /* Phosphate.ttf */; };
 		17244343225221BF002DFF7E /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17244342225221BF002DFF7E /* BorderView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		171F8F532253A19800730421 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		1724433722520B2C002DFF7E /* SearchFacePalette.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = SearchFacePalette.txt; path = ../SearchFacePalette.txt; sourceTree = "<group>"; };
 		1724434022521ACF002DFF7E /* Phosphate.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Phosphate.ttf; sourceTree = "<group>"; };
 		17244342225221BF002DFF7E /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				1738E8692251E085009C6B41 /* Styles.swift */,
 				1761646D224A0AA2007D774B /* AppDelegate.swift */,
+				171F8F532253A19800730421 /* ActivityIndicatorView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			files = (
 				17616470224A0AA2007D774B /* SearchViewController.swift in Sources */,
 				1738E858224B94D3009C6B41 /* SearchFaceResult.swift in Sources */,
+				171F8F542253A19800730421 /* ActivityIndicatorView.swift in Sources */,
 				17616498224A2A14007D774B /* SearchFaceAPI.swift in Sources */,
 				1738E86A2251E085009C6B41 /* Styles.swift in Sources */,
 				1738E862224BCD59009C6B41 /* ResultCell.swift in Sources */,
