@@ -21,9 +21,6 @@ class ActivityIndicatorView: UIView {
         layer.speed = 1
         
         setupAnimation()
-        for sl in layer.sublayers! {
-            print(sl.frame)
-        }
     }
     
     func stopAnimating() {
@@ -54,13 +51,11 @@ class ActivityIndicatorView: UIView {
                                            y: (animationRect.size.height - circleSize.height) / 2.0,
                                            width: circleSize.width * 3,
                                            height: circleSize.height)
-        print("animationCenteredRect: \(animationCenteredRect)")
         
         for index in 0...2 {
             let circleFrame = CGRect(origin: CGPoint(x: animationCenteredRect.origin.x + CGFloat(index) * circleSize.width,
                                                      y: animationCenteredRect.origin.y),
                                      size: circleSize)
-            print("circleFrame: \(circleFrame)")
             setCircleAnimation(inLayer: self.layer, withSize: circleSize, inFrame: circleFrame, withDelay: Double(index) * 0.15)
         }
     }

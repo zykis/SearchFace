@@ -17,8 +17,11 @@
 		1738E85F224BCCF5009C6B41 /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1738E85E224BCCF5009C6B41 /* ResultCell.xib */; };
 		1738E862224BCD59009C6B41 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738E861224BCD59009C6B41 /* ResultCell.swift */; };
 		1738E865224CAC07009C6B41 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1738E864224CAC07009C6B41 /* SearchViewController.xib */; };
-		1738E867224CBDC2009C6B41 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738E866224CBDC2009C6B41 /* UIImage+Utils.swift */; };
+		1738E867224CBDC2009C6B41 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738E866224CBDC2009C6B41 /* UIImageView+Utils.swift */; };
 		1738E86A2251E085009C6B41 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738E8692251E085009C6B41 /* Styles.swift */; };
+		1753CF882255033200326354 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753CF872255033200326354 /* UIImage+Utils.swift */; };
+		1753CF8A2255EEED00326354 /* SearchFaceAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753CF892255EEED00326354 /* SearchFaceAPIError.swift */; };
+		175C83632255028B00994A56 /* icons8-male-user-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 175C83622255028B00994A56 /* icons8-male-user-100.png */; };
 		1761646E224A0AA2007D774B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1761646D224A0AA2007D774B /* AppDelegate.swift */; };
 		17616470224A0AA2007D774B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1761646F224A0AA2007D774B /* SearchViewController.swift */; };
 		17616475224A0AA4007D774B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17616474224A0AA4007D774B /* Assets.xcassets */; };
@@ -47,8 +50,11 @@
 		1738E85E224BCCF5009C6B41 /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 		1738E861224BCD59009C6B41 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		1738E864224CAC07009C6B41 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		1738E866224CBDC2009C6B41 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
+		1738E866224CBDC2009C6B41 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
 		1738E8692251E085009C6B41 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		1753CF872255033200326354 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
+		1753CF892255EEED00326354 /* SearchFaceAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFaceAPIError.swift; sourceTree = "<group>"; };
+		175C83622255028B00994A56 /* icons8-male-user-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-male-user-100.png"; sourceTree = "<group>"; };
 		1761646A224A0AA2007D774B /* SearchFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1761646D224A0AA2007D774B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1761646F224A0AA2007D774B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 		17244347225235A3002DFF7E /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				175C83622255028B00994A56 /* icons8-male-user-100.png */,
 				17244348225235E8002DFF7E /* SearchFace 2@2x.png */,
 				17244349225235E8002DFF7E /* SearchFace 2@3x.png */,
 			);
@@ -143,7 +150,8 @@
 		1738E868224CF608009C6B41 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1738E866224CBDC2009C6B41 /* UIImage+Utils.swift */,
+				1738E866224CBDC2009C6B41 /* UIImageView+Utils.swift */,
+				1753CF872255033200326354 /* UIImage+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 			children = (
 				17616497224A2A14007D774B /* SearchFaceAPI.swift */,
 				1738E857224B94D3009C6B41 /* SearchFaceResult.swift */,
+				1753CF892255EEED00326354 /* SearchFaceAPIError.swift */,
 			);
 			path = SearchFaceAPI;
 			sourceTree = "<group>";
@@ -293,6 +302,7 @@
 				17616475224A0AA4007D774B /* Assets.xcassets in Resources */,
 				1724434A225235E8002DFF7E /* SearchFace 2@2x.png in Resources */,
 				1738E865224CAC07009C6B41 /* SearchViewController.xib in Resources */,
+				175C83632255028B00994A56 /* icons8-male-user-100.png in Resources */,
 				17244341225220C2002DFF7E /* Phosphate.ttf in Resources */,
 				1738E85F224BCCF5009C6B41 /* ResultCell.xib in Resources */,
 			);
@@ -315,12 +325,14 @@
 				17616470224A0AA2007D774B /* SearchViewController.swift in Sources */,
 				1738E858224B94D3009C6B41 /* SearchFaceResult.swift in Sources */,
 				171F8F542253A19800730421 /* ActivityIndicatorView.swift in Sources */,
+				1753CF882255033200326354 /* UIImage+Utils.swift in Sources */,
 				17616498224A2A14007D774B /* SearchFaceAPI.swift in Sources */,
 				1738E86A2251E085009C6B41 /* Styles.swift in Sources */,
 				1738E862224BCD59009C6B41 /* ResultCell.swift in Sources */,
-				1738E867224CBDC2009C6B41 /* UIImage+Utils.swift in Sources */,
+				1738E867224CBDC2009C6B41 /* UIImageView+Utils.swift in Sources */,
 				1761646E224A0AA2007D774B /* AppDelegate.swift in Sources */,
 				17244343225221BF002DFF7E /* BorderView.swift in Sources */,
+				1753CF8A2255EEED00326354 /* SearchFaceAPIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

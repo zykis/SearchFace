@@ -14,10 +14,12 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var borderView: BorderView!
     @IBOutlet weak var activityIndicatorView: ActivityIndicatorView!
+    @IBOutlet weak var errorTextView: UITextView!
     
     var results: [SearchFaceResult] = []
     let picker: UIImagePickerController = UIImagePickerController()
     let api: SearchFaceAPI = SearchFaceAPI()
+    var errorDescription: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,18 +50,35 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
         imageView.contentMode = .scaleAspectFit
         imageView.image = chosenImage
         
+//        self.errorDescription = nil
+        self.errorTextView.text = ""
         self.results = []
         self.tableView.reloadData()
         self.tableView.isHidden = true
         activityIndicatorView.startAnimating()
         
         dismiss(animated: true, completion: {
-            self.api.performSearch(image: chosenImage, completionHandler: {results in
+            self.api.performSearch(image: chosenImage, completionHandler: {results, error in
                 DispatchQueue.main.async {
                     self.activityIndicatorView.stopAnimating()
-                    self.results = results
-                    self.tableView.isHidden = false
-                    self.tableView.reloadData()
+                    
+                    if error != nil {
+                        let err: SearchFaceAPIError = error as! SearchFaceAPIError
+                        switch err {
+                        case .APIError(let message):
+                            self.errorTextView.text = message
+//                            self.errorDescription = message
+                        }
+                    } else {
+                        guard results != nil else {
+                            self.errorTextView.text = "No results found"
+//                            self.errorDescription = "No results found"
+                            return
+                        }
+                        self.results = results ?? []
+                        self.tableView.isHidden = false
+                        self.tableView.reloadData()
+                    }
                 }
             })
         })
@@ -92,7 +111,7 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
                                                                                    y: 0),
                                                                    size: CGSize(width: scrollView.frame.height,
                                                                                 height: scrollView.frame.height)))
-            imageView.backgroundColor = UIColor.red
+//            imageView.backgroundColor = UIColor.red
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             
@@ -116,12 +135,14 @@ class SearchViewController: UIViewController, UIImagePickerControllerDelegate, U
             scrollView.contentSize = CGSize(width: Int(scrollView.frame.height) * (index + 1) + (index * 4),
                                             height: Int(scrollView.frame.height))
             
+            // loading placeholder
+            let placeholder = UIImage(named: "icons8-male-user-100")!.alpha(0.15)
+            
             // loading an image from url
-            imageView.imageFromURL(urlString: thumbnail.url, placeholder: nil, completionHandler: { (image: UIImage) -> Void in
-                
+            imageView.imageFromURL(urlString: thumbnail.url, placeholder: placeholder, completionHandler: { (image: UIImage) -> Void in
                 // setting up image
                 imageView.image = image
-                
+
                 // centering face in image
                 let faceRect = CGRect(x: thumbnail.center.x - thumbnail.radius,
                                       y: thumbnail.center.y - thumbnail.radius,

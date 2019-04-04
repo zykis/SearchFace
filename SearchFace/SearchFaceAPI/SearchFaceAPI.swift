@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchFaceAPI: NSObject {
-    func performSearch(image: UIImage, completionHandler: @escaping ([SearchFaceResult]) -> Void) {
+    func performSearch(image: UIImage, completionHandler: @escaping ([SearchFaceResult]?, Error?) -> Void) {
         let boundary = "Boundary-\(UUID().uuidString)"
         let fileName = "file.jpg"
         let body: Data = generateMultipartBody(image: image, boundary: boundary, fileName: fileName)
@@ -36,9 +36,10 @@ class SearchFaceAPI: NSObject {
                     results.append(obj)
                 }
                 
-                completionHandler(results)
-            } catch let parsingError {
-                print("Error", parsingError)
+                completionHandler(results, nil)
+            } catch {
+                let errorMessage = String(bytes: body!, encoding: .utf8)!
+                completionHandler(nil, SearchFaceAPIError.APIError(message: errorMessage))
             }
         }
         task.resume()

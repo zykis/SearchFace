@@ -19,6 +19,7 @@
             <connections>
                 <outlet property="activityIndicatorView" destination="dG6-Pv-jpv" id="NYQ-KN-wfy"/>
                 <outlet property="borderView" destination="duC-vU-C0q" id="LYf-IX-Iph"/>
+                <outlet property="errorTextView" destination="tzl-Os-bdd" id="Ccu-s9-VKW"/>
                 <outlet property="imageView" destination="yTR-Ii-rmn" id="LbP-Mi-jI9"/>
                 <outlet property="tableView" destination="Xi9-Zi-85x" id="c75-2v-Auu"/>
                 <outlet property="view" destination="eq8-mA-kdr" id="MSb-c3-XND"/>
@@ -55,6 +56,12 @@
                     <color key="textColor" red="0.68235294120000001" green="0.80000000000000004" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tzl-Os-bdd">
+                    <rect key="frame" x="12" y="280" width="390" height="483"/>
+                    <color key="textColor" red="0.68235294120000001" green="0.80000000000000004" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xi9-Zi-85x">
                     <rect key="frame" x="4" y="283.5" width="406" height="578.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -72,13 +79,17 @@
                 <constraint firstItem="yTR-Ii-rmn" firstAttribute="leading" secondItem="duC-vU-C0q" secondAttribute="leading" constant="4" id="0cW-c9-bFL"/>
                 <constraint firstItem="dG6-Pv-jpv" firstAttribute="centerY" secondItem="TJh-tB-cLm" secondAttribute="centerY" id="3oz-Jr-qlR"/>
                 <constraint firstItem="duC-vU-C0q" firstAttribute="top" secondItem="TJh-tB-cLm" secondAttribute="top" id="7VD-0G-obe"/>
+                <constraint firstItem="TJh-tB-cLm" firstAttribute="trailing" secondItem="tzl-Os-bdd" secondAttribute="trailing" constant="12" id="CMn-BE-KBA"/>
                 <constraint firstItem="TJh-tB-cLm" firstAttribute="trailing" secondItem="Xi9-Zi-85x" secondAttribute="trailing" constant="4" id="DFx-8W-fbr"/>
                 <constraint firstItem="TJh-tB-cLm" firstAttribute="bottom" secondItem="Mlx-YH-q38" secondAttribute="bottom" constant="19" id="E7l-dr-6aY"/>
+                <constraint firstItem="tzl-Os-bdd" firstAttribute="leading" secondItem="TJh-tB-cLm" secondAttribute="leading" constant="12" id="KgQ-jG-fer"/>
                 <constraint firstItem="Xi9-Zi-85x" firstAttribute="top" secondItem="duC-vU-C0q" secondAttribute="bottom" constant="8" id="Kji-zz-NDs"/>
                 <constraint firstItem="yTR-Ii-rmn" firstAttribute="trailing" secondItem="duC-vU-C0q" secondAttribute="trailing" constant="-4" id="QOx-Fu-98O"/>
                 <constraint firstItem="duC-vU-C0q" firstAttribute="height" secondItem="Xi9-Zi-85x" secondAttribute="height" multiplier="0.4" id="R0K-Nn-y4k"/>
+                <constraint firstItem="tzl-Os-bdd" firstAttribute="top" secondItem="duC-vU-C0q" secondAttribute="bottom" constant="4.5" id="VyZ-yf-3L9"/>
                 <constraint firstItem="TJh-tB-cLm" firstAttribute="trailing" secondItem="duC-vU-C0q" secondAttribute="trailing" constant="8" id="WKF-T0-VMW"/>
                 <constraint firstItem="5Ni-03-ZoA" firstAttribute="centerX" secondItem="TJh-tB-cLm" secondAttribute="centerX" id="cit-tL-ty6"/>
+                <constraint firstItem="5Ni-03-ZoA" firstAttribute="top" secondItem="tzl-Os-bdd" secondAttribute="bottom" constant="8" id="ckC-Nt-Ddn"/>
                 <constraint firstItem="duC-vU-C0q" firstAttribute="leading" secondItem="TJh-tB-cLm" secondAttribute="leading" constant="8" id="dIq-qm-njI"/>
                 <constraint firstItem="dG6-Pv-jpv" firstAttribute="width" secondItem="eq8-mA-kdr" secondAttribute="width" multiplier="0.5" id="nRL-dK-Z9N"/>
                 <constraint firstItem="Mlx-YH-q38" firstAttribute="centerX" secondItem="TJh-tB-cLm" secondAttribute="centerX" id="pvW-jC-tRK"/>
